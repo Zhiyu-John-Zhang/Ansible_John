@@ -1,0 +1,9 @@
+---
+DBConnection:
+  Host: localhost
+  Port: 3306
+  User: myuser
+  Pwd: mypassword
+AppSetting:
+  AppName: myapp
+  DebugMode: 1
