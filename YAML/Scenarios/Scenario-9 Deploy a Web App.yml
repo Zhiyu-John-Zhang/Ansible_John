@@ -12,5 +12,9 @@ plays:
             
         - name: "Install required packages"
             dnf:
-              name:
+              name: "{{ item }}"
               state: present
+            loop:                                 # the loop scope is inside of the task
+              - httpd
+              - php
+              - mysql
