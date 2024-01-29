@@ -1,0 +1,6 @@
+---
+tasks:
+  - name: Update system packages
+    dnf: epel-release
+  - name: Install required packages
+    
