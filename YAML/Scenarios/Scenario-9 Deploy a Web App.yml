@@ -1,6 +1,16 @@
 ---
-tasks:
-  - name: Update system packages
-    dnf: epel-release
-  - name: Install required packages
-    
+plays:
+  - name: "Deploy a Web Server"
+      hosts: web-servers
+      tasks:
+        - name: "Update system packages"
+            dnf:                                  # module
+              name: "*"                           # argument
+              state: latest                       # argument
+              exclude: kernel*                    # argument
+            when: ansible_os_family == 'CentOS'   # condition
+            
+        - name: "Install required packages"
+            dnf:
+              name:
+              state: present
