@@ -1,0 +1,23 @@
+---
+PersonalInfo:
+  person1:
+    - name: Aaron Smith
+    - age: 45
+    - addr:
+        street: 1 King St.
+        city: Toronto
+        zip: A1B 2C3
+  person2:
+    - name: Aiden Smith
+    - age: 34
+    - addr:
+        street: 2 King St.
+        city: Toronto
+        zip: A1B 2C3
+  person3:
+    - name: Alex Smith
+    - age: 62
+    - addr:
+        street: 3 King St.
+        city: Toronto
+        zip: A1B 2C3
