@@ -38,4 +38,4 @@
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
-#          when: "'mariadb' in ansible_failed_result"
+          when: "'mariadb' in results.results"
