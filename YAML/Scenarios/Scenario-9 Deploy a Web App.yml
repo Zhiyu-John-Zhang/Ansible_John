@@ -39,3 +39,8 @@
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
 #          when: "'mariadb' in dnf_results[*].results[*].msg"
+        - name: Fail if return code is not 0
+          fail:
+            msg: "The command ({{ item.cmd }}) did not have a 0 return code"
+          when: item.rc != 0
+          loop: "{{ dnf_results.results }}"
