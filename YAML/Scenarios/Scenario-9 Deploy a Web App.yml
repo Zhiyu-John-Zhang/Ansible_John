@@ -14,17 +14,18 @@
         exclude: kernel*                    # argument
       when: ansible_os_family == 'CentOS'   # condition
             
-    - name: "Install required packages"
+    - name: "Block and rescue task"
       block:
-        dnf:
-          name: "{{ item }}"
-          state: present
-        loop:                                 # the loop scope is inside of the task
-          - httpd
-          - php
-          - mysql
-        register: result 
-#      notify: debug
+        - name: "Install required packages"
+          dnf:
+            name: "{{ item }}"
+            state: present
+          loop:                                 # the loop scope is inside of the task
+            - httpd
+            - php
+            - mysql
+          register: result 
+#        notify: debug
       rescue:
         - name: debug output
           debug:
