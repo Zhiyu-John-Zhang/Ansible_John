@@ -2,6 +2,10 @@
 - name: "Deploy a Web Server"
   hosts: all
   become: true
+  handlers:
+    - name: debug
+      debug:
+        msg: "MariaDB has been installed so that MySQL installation failed."
   tasks:
     - name: "Update system packages"
       dnf:                                  # module
@@ -19,7 +23,3 @@
         - php
         - mysql
       notify: debug
-  handlers:
-    - name: debug
-      debug:
-        msg: "MariaDB has been installed so that MySQL installation failed."
