@@ -27,18 +27,10 @@
             - mysql
 #          notify: debug
       rescue:
-        - name: stdout
+        - name: output register: dns_results
           debug:
             msg: "{{ dnf_results }}"
           ignore_errors: true
-#        - name: stderr
-#          debug:
-#            msg: "{{ dnf_results.results[*].msg }}"
-#          ignore_errors: true
-#        - name: debug output
-#          debug:
-#            msg: "MariaDB has been installed so that MySQL installation failed."
-#          when: "'mariadb' in dnf_results[*].results[*].msg"
         - name: Fail if return code is not 0
           fail:
             msg: "The package ({{ item.name }}) failed to install."
