@@ -30,9 +30,11 @@
         - name: stdout
           debug:
             msg: "{{ results.stdout_lines }}"
+          ignore_errors: true
         - name: stderr
           debug:
             msg: "{{ results.stderr_lines }}"
+          ignore_errors: true
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
