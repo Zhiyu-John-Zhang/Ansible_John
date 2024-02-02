@@ -29,7 +29,7 @@
       rescue:
         - name: register output
           debug:
-            var: result
+            var: result.stderr
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
