@@ -29,11 +29,11 @@
       rescue:
         - name: stdout
           debug:
-            msg: "{{ results }}"
+            msg: "{{ results.results }}"
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ results.results }}"
+            msg: "{{ results.results.msg }}"
           ignore_errors: true
         - name: debug output
           debug:
