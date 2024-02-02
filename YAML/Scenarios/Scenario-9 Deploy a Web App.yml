@@ -33,9 +33,9 @@
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ dnf_results.results.msg }}"
+            msg: "{{ dnf_results.results['msg'] }}"
           ignore_errors: true
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
-          when: "'mariadb' in dnf_results[*].results[*].msg"
+#          when: "'mariadb' in dnf_results[*].results[*].msg"
