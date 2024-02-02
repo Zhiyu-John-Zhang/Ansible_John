@@ -31,16 +31,16 @@
           debug:
             msg: "{{ dnf_results }}"
           ignore_errors: true
-        - name: stderr
-          debug:
-            msg: "{{ dnf_results.results[*].msg }}"
-          ignore_errors: true
-        - name: debug output
-          debug:
-            msg: "MariaDB has been installed so that MySQL installation failed."
+#        - name: stderr
+#          debug:
+#            msg: "{{ dnf_results.results[*].msg }}"
+#          ignore_errors: true
+#        - name: debug output
+#          debug:
+#            msg: "MariaDB has been installed so that MySQL installation failed."
 #          when: "'mariadb' in dnf_results[*].results[*].msg"
         - name: Fail if return code is not 0
           fail:
-            msg: "The command ({{ item.cmd }}) did not have a 0 return code"
+            msg: "The package ({{ item }}) failed to install."
           when: item.rc != 0
           loop: "{{ dnf_results.results }}"
