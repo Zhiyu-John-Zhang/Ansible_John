@@ -20,11 +20,11 @@
           dnf:
             name: "{{ item }}"
             state: present
+          register: results
           loop:                                 # the loop scope is inside of the task
             - httpd
             - php
             - mysql
-          register: results
 #          notify: debug
       rescue:
         - name: stdout
