@@ -23,14 +23,13 @@
           loop:                                 # the loop scope is inside of the task
             - httpd
             - php
-            - mysql
-          register: result 
-#        notify: debug
+            - mysql 
+#          notify: debug
       rescue:
-        - name: register output
-          debug:
-            var: ansible_failed_result
+#        - name: register output
+#          debug:
+#            var: ansible_failed_result
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
-          when: "'mariadb' in result.msg"
+          when: "'mariadb' in ansible_failed_result"
