@@ -1,20 +1,20 @@
 ---
 plays:
   - name: "Deploy a Web Server"
-      hosts: all
-      tasks:
-        - name: "Update system packages"
-            dnf:                                  # module
-              name: "*"                           # argument
-              state: latest                       # argument
-              exclude: kernel*                    # argument
-            when: ansible_os_family == 'CentOS'   # condition
+    hosts: all
+    tasks:
+      - name: "Update system packages"
+          dnf:                                  # module
+            name: "*"                           # argument
+            state: latest                       # argument
+             exclude: kernel*                    # argument
+          when: ansible_os_family == 'CentOS'   # condition
             
-        - name: "Install required packages"
-            dnf:
-              name: "{{ item }}"
-              state: present
-            loop:                                 # the loop scope is inside of the task
-              - httpd
-              - php
-              - mysql
+      - name: "Install required packages"
+          dnf:
+            name: "{{ item }}"
+            state: present
+          loop:                                 # the loop scope is inside of the task
+           - httpd
+           - php
+           - mysql
