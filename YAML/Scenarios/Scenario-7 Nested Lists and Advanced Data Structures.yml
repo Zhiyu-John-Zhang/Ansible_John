@@ -1,0 +1,20 @@
+---
+Categories:
+  - Category1:
+      Name: Fruits
+      Items:
+        - Item1:
+            Name: Apple
+            Price: 3
+        - Item2:
+            Name: Banana
+            Price: 1.5
+  - Category2:
+      Name: Vegetables
+      Items:
+        - Item1:
+            Name: Tomato
+            Price: 2.5
+        - Item2:
+            Name: Cucumber
+            Price: 2

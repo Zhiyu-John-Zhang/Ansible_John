@@ -1,0 +1,11 @@
+---
+DEV:
+  DBConnection:
+    host: dev-db.example.com
+    port: 3306
+  APIKey: abc123
+PROD:
+  DBConnection:
+    host: prod-db.example.com
+    port: 5432
+  APIKey: xyz789
