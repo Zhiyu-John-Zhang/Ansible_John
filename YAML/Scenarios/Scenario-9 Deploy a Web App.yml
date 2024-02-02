@@ -2,10 +2,10 @@
 - name: "Deploy a Web Server"
   hosts: all
   become: true
-  handlers:
-    - name: debug
-      debug:
-        msg: "MariaDB has been installed so that MySQL installation failed."
+#  handlers:
+#    - name: debug
+#      debug:
+#        msg: "MariaDB has been installed so that MySQL installation failed."
   tasks:
     - name: "Update system packages"
       dnf:                                  # module
@@ -15,11 +15,18 @@
       when: ansible_os_family == 'CentOS'   # condition
             
     - name: "Install required packages"
-      dnf:
-        name: "{{ item }}"
-        state: present
-      loop:                                 # the loop scope is inside of the task
-        - httpd
-        - php
-        - mysql
-      notify: debug
+      block:
+        dnf:
+          name: "{{ item }}"
+          state: present
+        loop:                                 # the loop scope is inside of the task
+          - httpd
+          - php
+          - mysql
+        register: result 
+#      notify: debug
+      rescue:
+        - name: debug output
+          debug:
+            msg: "MariaDB has been installed so that MySQL installation failed."
+          when: "result.msg contains mariadb"
