@@ -1,7 +1,7 @@
 ---
 plays:
   - name: "Deploy a Web Server"
-      hosts: web-servers
+      hosts: all
       tasks:
         - name: "Update system packages"
             dnf:                                  # module
