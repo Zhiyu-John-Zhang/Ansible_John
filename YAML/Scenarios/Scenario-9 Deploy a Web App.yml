@@ -29,7 +29,7 @@
       rescue:
         - name: register output
           debug:
-            var: ansible_loop_var.msg
+            var: ansible_failed_result
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
