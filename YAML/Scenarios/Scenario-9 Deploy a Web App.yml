@@ -27,7 +27,7 @@
             - mysql
 #          notify: debug
       rescue:
-        - name: output register: dns_results
+        - name: output register - dns_results
           debug:
             msg: "{{ dnf_results }}"
           ignore_errors: true
