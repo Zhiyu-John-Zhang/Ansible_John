@@ -1,5 +1,5 @@
 ---
-plays:
+- plays:
   - name: "Deploy a Web Server"
     hosts: all
     tasks:
