@@ -23,15 +23,16 @@
           loop:                                 # the loop scope is inside of the task
             - httpd
             - php
-            - mysql 
+            - mysql
+          register: results
 #          notify: debug
       rescue:
-        - name: ansible_failed_result standard error in lines
+        - name: stdout
           debug:
-            msg: "{{ ansible_failed_result.stderr_lines }}"
-        - name: ansible_failed_task standard error in lines
+            msg: "{{ results.stdout_lines }}"
+        - name: stderr
           debug:
-            msg: "{{ ansible_failed_task.stderr_lines }}"
+            msg: "{{ results.stderr_lines }}"
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
