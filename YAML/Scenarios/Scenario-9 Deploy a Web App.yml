@@ -33,7 +33,7 @@
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ results.results }}"
+            msg: "{{ find | json_query('results[*].results[*].msg') | flatten }}"
           ignore_errors: true
         - name: debug output
           debug:
