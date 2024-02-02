@@ -28,10 +28,10 @@
       rescue:
         - name: ansible_failed_result standard error in lines
           debug:
-            var: ansible_failed_result.stderr_lines
+            msg: "{{ ansible_failed_result.stderr_lines }}"
         - name: ansible_failed_task standard error in lines
           debug:
-            var: ansible_failed_task.stderr_lines
+            msg: "{{ ansible_failed_task.stderr_lines }}"
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
