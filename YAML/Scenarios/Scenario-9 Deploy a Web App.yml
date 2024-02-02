@@ -41,6 +41,6 @@
 #          when: "'mariadb' in dnf_results[*].results[*].msg"
         - name: Fail if return code is not 0
           fail:
-            msg: "The package ({{ item }}) failed to install."
+            msg: "The package ({{ item.name }}) failed to install."
           when: item.rc != 0
           loop: "{{ dnf_results.results }}"
