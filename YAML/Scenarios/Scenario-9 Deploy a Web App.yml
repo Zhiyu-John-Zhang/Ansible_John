@@ -27,6 +27,9 @@
           register: result 
 #        notify: debug
       rescue:
+        - name: register output
+          debug:
+            var: result
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
