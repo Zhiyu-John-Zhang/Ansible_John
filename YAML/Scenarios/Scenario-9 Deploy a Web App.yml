@@ -33,7 +33,7 @@
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ results.msg }}"
+            msg: "{{ results.results.msg }}"
           ignore_errors: true
         - name: debug output
           debug:
