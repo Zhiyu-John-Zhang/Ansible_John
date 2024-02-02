@@ -29,7 +29,7 @@
       rescue:
         - name: stdout
           debug:
-            msg: "{{ results.stdout_lines }}"
+            msg: "{{ results }}"
           ignore_errors: true
         - name: stderr
           debug:
