@@ -20,7 +20,7 @@
           dnf:
             name: "{{ item }}"
             state: present
-          register: results
+          register: dnf_results
           loop:                                 # the loop scope is inside of the task
             - httpd
             - php
@@ -29,13 +29,13 @@
       rescue:
         - name: stdout
           debug:
-            msg: "{{ results }}"
+            msg: "{{ dnf_results }}"
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ find | json_query('results[*].results[*].msg') | flatten }}"
+            msg: "{{ dnf_results | json_query('results[*].results[*].msg') | flatten }}"
           ignore_errors: true
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
-          when: "'mariadb' in results[*].results[*].msg"
+          when: "'mariadb' in dnf_results[*].results[*].msg"
