@@ -1,6 +1,7 @@
 ---
 - name: "Deploy a Web Server"
   hosts: all
+  become: true
   tasks:
     - name: "Update system packages"
       dnf:                                  # module
