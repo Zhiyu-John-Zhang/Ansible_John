@@ -33,7 +33,7 @@
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ dnf_results | json_query('results[*].results[*].msg') | flatten }}"
+            msg: "{{ dnf_results.results.msg }}"
           ignore_errors: true
         - name: debug output
           debug:
