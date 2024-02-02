@@ -18,3 +18,8 @@
         - httpd
         - php
         - mysql
+      notify: debug
+  handlers:
+    - name: debug
+      debug:
+        msg: "MariaDB has been installed so that MySQL installation failed."
