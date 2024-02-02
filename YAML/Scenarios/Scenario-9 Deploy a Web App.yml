@@ -29,13 +29,13 @@
       rescue:
         - name: stdout
           debug:
-            msg: "{{ results.results }}"
+            msg: "{{ results }}"
           ignore_errors: true
         - name: stderr
           debug:
-            msg: "{{ results.results.msg }}"
+            msg: "{{ results.results }}"
           ignore_errors: true
         - name: debug output
           debug:
             msg: "MariaDB has been installed so that MySQL installation failed."
-          when: "'mariadb' in results.results"
+          when: "'mariadb' in results[*].results[*].msg"
